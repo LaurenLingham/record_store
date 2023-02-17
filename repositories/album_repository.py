@@ -15,7 +15,14 @@ def save(album):
     return album
 
 def select_all():
-    pass
+    albums = []
+    sql = "SELECT * FROM albums"
+    results = run_sql(sql)
+    for row in results:
+        artist = artist_repository.select(row["artist_id"])
+        album = Album(artist, row["title"], row["year_released"], row["genre"], row["stock_qty"], row["purchase_price"], row["sell_price"], row["id"])
+        albums.append(album)
+    return albums
 
 def select(id):
     pass
