@@ -25,7 +25,15 @@ def select_all():
     return albums
 
 def select(id):
-    pass
+    album = None
+    sql = "SELECT * FROM albums WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        artist = artist_repository.select(result["artist_id"])
+        album = Album(artist, result["title"], result["year_released"], result["genre"], result["stock_qty"], result["purchase_price"], result["sell_price"], result["id"])
+    return album
 
 def update(album):
     pass
