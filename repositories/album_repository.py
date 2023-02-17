@@ -72,3 +72,9 @@ def total_albums_in_stock(albums):
     for album in albums:
         total_albums += album.stock_qty
     return total_albums
+
+def total_spend_on_stock(albums):
+    total_spend = 0
+    for album in albums:
+        total_spend += album.purchase_price * album.stock_qty
+    return total_spend
