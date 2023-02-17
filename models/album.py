@@ -9,3 +9,8 @@ class Album:
         self.purchase_price = purchase_price
         self.sell_price = sell_price
         self.id = id
+
+    def markup(self):
+        diff = abs(self.purchase_price - self.sell_price)
+        avg = (self.purchase_price + self.sell_price) / 2
+        return round((diff / avg) * 100)
