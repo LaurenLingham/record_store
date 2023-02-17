@@ -36,7 +36,8 @@ def update(artist):
     run_sql(sql, values)
     
 def delete_all():
-    pass
+    sql = "DELETE FROM artists"
+    run_sql(sql)
 
 def delete(id):
     pass
