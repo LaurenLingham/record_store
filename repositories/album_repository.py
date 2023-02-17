@@ -35,6 +35,17 @@ def select(id):
         album = Album(artist, result["title"], result["year_released"], result["genre"], result["stock_qty"], result["purchase_price"], result["sell_price"], result["id"])
     return album
 
+def filter_by_artist(id):
+    albums = []
+    sql = "SELECT * FROM albums WHERE artist_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for row in results:
+        artist = artist_repository.select(row["artist_id"])
+        album = Album(artist, result["title"], result["year_released"], result["genre"], result["stock_qty"], result["purchase_price"], result["sell_price"], result["id"])
+        albums.append(album)
+    return albums
+
 def update(album):
     sql = """UPDATE albums SET (artist_id, title, year_released, genre, stock_qty, purchase_price, sell_price)
             = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"""
