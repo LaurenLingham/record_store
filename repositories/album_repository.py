@@ -50,6 +50,3 @@ def delete(id):
     sql = "DELETE FROM albums WHERE id = %s"
     values = [id]
     run_sql(sql, values)
-
-
-Album(["artist_id"], ["title"], ["year_released"], ["genre"], ["stock_qty"], ["purchase_price"], ["sell_price"], ["id"])
