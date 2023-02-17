@@ -21,7 +21,14 @@ def select_all():
     return artists
 
 def select(id):
-    pass
+    artist = None
+    sql = "SELECT * FROM artists WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        artist = Artist(result["name"], result["id"])
+    return artist
 
 def update(artist):
     pass
