@@ -36,7 +36,11 @@ def select(id):
     return album
 
 def update(album):
-    pass
+    sql = """UPDATE albums SET (artist_id, title, year_released, genre, stock_qty, purchase_price, sell_price)
+            = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"""
+    values = [album.artist.id, album.title, album.year_released, album.genre, album.stock_qty, album.purchase_price, album.sell_price, album.id]
+    print(values)
+    run_sql(sql, values)
 
 def delete_all():
     pass
