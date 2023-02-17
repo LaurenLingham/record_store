@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Record Store Inventory</title>
+</head>
+<body>
+  <header>
+    <img class="logo" src="" alt="Logo">
+    <nav>
+      <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/inventory">Inventory List</a></li>
+        <li><a href="/inventory/new_album">Add Album</a></li>
+        <li><a href="/artist">Artist List</a></li>
+        <li><a href="/artist/new_artist">Add Artist</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  {%block home%}
+  {% endblock %}
+</body>
+</html>
