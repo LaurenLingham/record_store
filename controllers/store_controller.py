@@ -10,3 +10,12 @@ albums_blueprint = Blueprint("albums", __name__)
 def albums():
     albums = album_repository.select_all()
     return render_template("albums/index.html")
+
+@albums_blueprint.route("albums/new")
+def new_album():
+    artists = artist_repository.select_all()
+    return render_template("albums/new.html", all_artists = artists)
+
+@albums_blueprint.route("/books", methods=["POST"])
+def create_book():
+    pass
