@@ -31,7 +31,9 @@ def select(id):
     return artist
 
 def update(artist):
-    pass
+    sql = "UPDATE artists set (name) = (%s) WHERE id = %s"
+    values = [artist.name, artist.id]
+    run_sql(sql, values)
     
 def delete_all():
     pass
