@@ -12,7 +12,6 @@ CREATE TABLE albums (
     title VARCHAR(255),
     year_released YEAR,
     genre VARCHAR(255),
-    description VARCHAR(255),
     stock_qty INT,
     purchase_price FLOAT,
     sell_price FLOAT

@@ -50,6 +50,6 @@ def albums(artist):
     values = [artist.id]
     results = run_sql(sql, values)
     for row in results:
-        album = Album(row["artist_id"], row["title"], row["year_released"], row["genre"], row["description"], row["stock_qty"], row["purchase_price"], row["sell_price"], row["id"])
+        album = Album(row["artist_id"], row["title"], row["year_released"], row["genre"], row["stock_qty"], row["purchase_price"], row["sell_price"], row["id"])
         albums.append(album)
     return albums
