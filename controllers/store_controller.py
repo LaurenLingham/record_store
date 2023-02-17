@@ -36,3 +36,28 @@ def create_album():
     album_repository.save(album)
     return redirect("/albums")
 
+@store_blueprint.route("/albums/<id>")
+def show_album(id):
+    album = album_repository.select(id)
+    return render_template("albums/album.html", album = album)
+
+@store_blueprint.route("/albums/<id>/edit")
+def edit_album(id):
+    album = album_repository.select(id)
+    artists = artist_repository.select_all()
+    return render_template("albums/edit_album.html", album = album, all_artists = artists)
+
+@store_blueprint.route("/albums/<id>", methods=["POST"])
+def update_album(id):
+    artist = artist_repository.select(request.form["artist_id"])
+    title = request.form["title"]
+    year_released = request.form["year_released"]
+    genre = request.form["genre"]
+    stock_qty = request.form["stock_qty"]
+    purchase_price = request.form["purchase_price"]
+    sell_price = request.form["sell_price"]
+    album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price)
+    print(album.artist.name())
+    album_repository.updte(album)
+    return redirect("/books")
+
