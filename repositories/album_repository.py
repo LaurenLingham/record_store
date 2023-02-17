@@ -43,7 +43,8 @@ def update(album):
     run_sql(sql, values)
 
 def delete_all():
-    pass
+    sql = "DELETE FROM albums"
+    run_sql(sql)
 
 def delete(id):
     pass
