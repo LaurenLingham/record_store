@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.album import Album
+from models.artist import Artist
 import repositories.album_repository as album_repository
 import repositories.artist_repository as artist_repository
 
@@ -65,3 +66,49 @@ def update_album(id):
 def delete_album(id):
     album_repository.delete(id)
     return redirect ("/albums")
+
+@albums_blueprint.route("/artists")
+def artists():
+    artists = artist_repository.select_all()
+    return render_template("artists/index.html", all_artists = artists)
+
+@albums_blueprint.route("/artists/new")
+def new_artist():
+    return render_template("/artists/new.html")
+
+@albums_blueprint.route("/artists", methods=["POST"])
+def create_artist():
+    name = request.form["name"]
+    artist = Artist(name)
+    artist_repository.save(artist)
+    return redirect("/artists")
+
+# @albums_blueprint.route("/albums/<id>")
+# def show_album(id):
+#     album = album_repository.select(id)
+#     return render_template("albums/album.html", album = album)
+
+# @albums_blueprint.route("/albums/<id>/edit")
+# def edit_album(id):
+#     album = album_repository.select(id)
+#     artists = artist_repository.select_all()
+#     return render_template("albums/edit.html", album = album, all_artists = artists)
+
+# @albums_blueprint.route("/albums/<id>", methods=["POST"])
+# def update_album(id):
+#     artist = artist_repository.select(request.form["artist_id"])
+#     title = request.form["title"]
+#     year_released = request.form["year_released"]
+#     genre = request.form["genre"]
+#     stock_qty = request.form["stock_qty"]
+#     purchase_price = request.form["purchase_price"]
+#     sell_price = request.form["sell_price"]
+#     album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price)
+#     print(album.artist.name())
+#     album_repository.updte(album)
+#     return redirect("/albums")
+
+# @albums_blueprint.route("/albums/<id>/delete", methods=["POST"])
+# def delete_album(id):
+#     album_repository.delete(id)
+#     return redirect ("/albums")

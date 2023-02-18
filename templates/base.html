@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,31 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>Record Store Inventory</title>
 </head>
+
 <body>
-  <header>
-    <img class="logo" src="images/record_fix.jpg" alt="Logo">
-    <nav>
-      <ul class="top-menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/albums">Records</a></li>
-      </ul>
-      <ul>
-        <li><a href="/albums/new">Add New Album to Stock</a></li>
-        <li><a href="/artists">Artist List</a></li>
-        <li><a href="/artists/new">Add Artist</a></li>
-      </ul>
-    </nav>
-  </header>
-  <div class="container">
-    {% block content %}
-    {% endblock %}
+  <div id="homepage">
+    <div id="sidebar">
+      <img class="logo" src={{ url_for ("static", filename="images/record_fix.jpg" ) }} alt="Logo">
+      <nav>
+        <ul class="top-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/albums">Records</a></li>
+        </ul>
+        <ul>
+          <li><a href="/albums/new">Add New Album to Stock</a></li>
+          <li><a href="/artists">Artist List</a></li>
+          <li><a href="/artists/new">Add Artist</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
   </div>
 
   {%block home%}
   {% endblock %}
 </body>
+
 </html>
