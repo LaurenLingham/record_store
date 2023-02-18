@@ -1,1 +1,10 @@
-single artist
+{% extends "base.html" %}
+{% block content %}
+
+  <hr>
+  <div>
+    <p>{{ artist.name }}</p>
+    <p><a href="/artists/{{ artist.id }}/edit">Edit</a></p>
+  </div>
+
+{% endblock %}}

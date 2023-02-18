@@ -1,1 +1,12 @@
-edit artist
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/artists/{{ artist.id }}" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ artist.name }}" required autofocus>
+  </div>
+  <button type="submit">Update Book</button>
+</form>
+
+{% endblock %}
