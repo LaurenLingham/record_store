@@ -58,7 +58,6 @@ def update_album(id):
     purchase_price = request.form["purchase_price"]
     sell_price = request.form["sell_price"]
     album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price)
-    print(album.artist.name())
     album_repository.updte(album)
     return redirect("/albums")
 
@@ -83,32 +82,24 @@ def create_artist():
     artist_repository.save(artist)
     return redirect("/artists")
 
-# @albums_blueprint.route("/albums/<id>")
-# def show_album(id):
-#     album = album_repository.select(id)
-#     return render_template("albums/album.html", album = album)
+@albums_blueprint.route("/artists/<id>")
+def show_artist(id):
+    artist = artist_repository.select(id)
+    return render_template("artists/artist.html", artist = artist)
 
-# @albums_blueprint.route("/albums/<id>/edit")
-# def edit_album(id):
-#     album = album_repository.select(id)
-#     artists = artist_repository.select_all()
-#     return render_template("albums/edit.html", album = album, all_artists = artists)
+@albums_blueprint.route("/artists/<id>/edit")
+def edit_artist(id):
+    artist = artist_repository.select(id)
+    return render_template("artists/edit.html", artist = artist)
 
-# @albums_blueprint.route("/albums/<id>", methods=["POST"])
-# def update_album(id):
-#     artist = artist_repository.select(request.form["artist_id"])
-#     title = request.form["title"]
-#     year_released = request.form["year_released"]
-#     genre = request.form["genre"]
-#     stock_qty = request.form["stock_qty"]
-#     purchase_price = request.form["purchase_price"]
-#     sell_price = request.form["sell_price"]
-#     album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price)
-#     print(album.artist.name())
-#     album_repository.updte(album)
-#     return redirect("/albums")
+@albums_blueprint.route("/artists/<id>", methods=["POST"])
+def update_artist(id):
+    name = request.form["name"]
+    artist = Artist(name)
+    artist_repository.updte(artist)
+    return redirect("/artists")
 
-# @albums_blueprint.route("/albums/<id>/delete", methods=["POST"])
-# def delete_album(id):
-#     album_repository.delete(id)
-#     return redirect ("/albums")
+@albums_blueprint.route("/artists/<id>/delete", methods=["POST"])
+def delete_artist(id):
+    artist_repository.delete(id)
+    return redirect ("/artists")
