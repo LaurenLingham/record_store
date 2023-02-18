@@ -4,26 +4,26 @@ from models.album import Album
 import repositories.album_repository as album_repository
 import repositories.artist_repository as artist_repository
 
-store_blueprint = Blueprint("record store", __name__)
+albums_blueprint = Blueprint("albums", __name__)
 
-@store_blueprint.route("/index.html")
+@albums_blueprint.route("/index")
 def homepage():
-    show_inventory = album_repository.select_all()
-    total_albums_in_stock = album_repository.total_albums_in_stock(show_inventory)
-    total_spend_on_stock = album_repository.total_spend_on_stock(show_inventory)
-    return render_template("/index.html", show_inventory = show_inventory, total_albums_in_stock = total_albums_in_stock, total_spend_on_stock = total_spend_on_stock)
+    albums = album_repository.select_all()
+    total_albums_in_stock = album_repository.total_albums_in_stock(albums)
+    total_spend_on_stock = album_repository.total_spend_on_stock(albums)
+    return render_template("/index.html", albums = albums, total_albums_in_stock = total_albums_in_stock, total_spend_on_stock = total_spend_on_stock)
 
-@store_blueprint.route("/albums")
+@albums_blueprint.route("/albums")
 def albums():
     albums = album_repository.select_all()
     return render_template("albums/index.html", all_albums = albums)
 
-@store_blueprint.route("albums/new")
+@albums_blueprint.route("/albums/new")
 def new_album():
     artists = artist_repository.select_all()
-    return render_template("albums/new.html", all_artists = artists)
+    return render_template("/albums/new.html", all_artists = artists)
 
-@store_blueprint.route("/albums", methods=["POST"])
+@albums_blueprint.route("/albums", methods=["POST"])
 def create_album():
     artist = artist_repository.select(request.form["artist_id"])
     title = request.form["title"]
@@ -36,18 +36,18 @@ def create_album():
     album_repository.save(album)
     return redirect("/albums")
 
-@store_blueprint.route("/albums/<id>")
+@albums_blueprint.route("/albums/<id>")
 def show_album(id):
     album = album_repository.select(id)
     return render_template("albums/album.html", album = album)
 
-@store_blueprint.route("/albums/<id>/edit")
+@albums_blueprint.route("/albums/<id>/edit")
 def edit_album(id):
     album = album_repository.select(id)
     artists = artist_repository.select_all()
-    return render_template("albums/edit_album.html", album = album, all_artists = artists)
+    return render_template("albums/edit.html", album = album, all_artists = artists)
 
-@store_blueprint.route("/albums/<id>", methods=["POST"])
+@albums_blueprint.route("/albums/<id>", methods=["POST"])
 def update_album(id):
     artist = artist_repository.select(request.form["artist_id"])
     title = request.form["title"]
@@ -59,5 +59,9 @@ def update_album(id):
     album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price)
     print(album.artist.name())
     album_repository.updte(album)
-    return redirect("/books")
+    return redirect("/albums")
 
+@albums_blueprint.route("/albums/<id>/delete", methods=["POst"])
+def delete_album(id):
+    album_repository.delete(id)
+    return redirect ("/albums")

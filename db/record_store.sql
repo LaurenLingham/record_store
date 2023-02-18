@@ -10,7 +10,7 @@ CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
     artist INT NOT NULL REFERENCES artists(id),
     title VARCHAR(255),
-    year_released YEAR,
+    year_released INT,
     genre VARCHAR(255),
     stock_qty INT,
     purchase_price FLOAT,
