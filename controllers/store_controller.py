@@ -6,7 +6,7 @@ import repositories.artist_repository as artist_repository
 
 albums_blueprint = Blueprint("albums", __name__)
 
-@albums_blueprint.route("/index")
+@albums_blueprint.route("/")
 def homepage():
     albums = album_repository.select_all()
     total_albums_in_stock = album_repository.total_albums_in_stock(albums)
@@ -61,7 +61,7 @@ def update_album(id):
     album_repository.updte(album)
     return redirect("/albums")
 
-@albums_blueprint.route("/albums/<id>/delete", methods=["POst"])
+@albums_blueprint.route("/albums/<id>/delete", methods=["POST"])
 def delete_album(id):
     album_repository.delete(id)
     return redirect ("/albums")
