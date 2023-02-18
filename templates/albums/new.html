@@ -1,1 +1,40 @@
-add album
+{% extends "base.html" %}
+{% block content %}
+<form action="/albums" method="post">
+    <div>
+        <label for="artist">Artist:</label>
+        <select id="artist" name="artist.id">
+          {% for artist in all_artists %}
+            <option value="{{ artist.id }}">{{ artist.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" placeholder="Title" required autofocus>
+    </div>
+    <div>
+        <label for="year_published">Year Released:</label>
+        <input type="number" id="year_released" name="year_released" placeholder="Year Released" required>
+    </div>
+    <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" placeholder="Genre" required>
+    </div>
+    <div>
+        <label for="stock_qty">Stock qty:</label>
+        <input type="number" id="stock_qty" name="stock_qty" required>
+    </div>
+    <div>
+        <label for="purchase_price">Cost to buy: £</label>
+        <input type="number" id="purchase_price" name="purchase_price" required>
+    </div>
+    <div>
+        <label for="sell_price">Sale price: £</label>
+        <input type="number" id="sell_price" name="sell_price" required>
+    </div>
+    <button type="submit">Add Record</button>  
+</form>
+
+{% endblock %}
+

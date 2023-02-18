@@ -1,1 +1,19 @@
-single album
+{% extends "base.html" %}
+{% block content %}
+
+  <hr>
+  <div>
+    <p>{{ album.title }}</p>
+    <p>by {{ album.artist.name }}</p>
+    <p>Released in {{ album.year_released }}</p>
+    <p><i>{{ album.genre }}</i></p>
+    <p></p>
+    <p>No. in stock: {{ album.stock_qty }}</p>
+    <p></p>
+    <p>Cost to buy: £{{ album.purchase_price }}</p>
+    <p>Sale price: £{{ album.sell_price }}</p>
+    <p></p>
+    <p><a href="/albums/{{ album.id }}/edit">Edit</a></p>
+  </div>
+
+{% endblock %}}

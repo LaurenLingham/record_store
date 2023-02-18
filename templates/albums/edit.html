@@ -1,1 +1,51 @@
-edit album
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/albums/{{ album.id }}" method="post">
+    <div>
+        <label for="artist">Artist:</label>
+        <select id="artist" name="artist.id">
+          {% for artist in all_artists %}
+            <option value="{{ artist.id }}"
+              {% if album.artist.id== artist.id %} selected="selected"{% endif %}>
+              {{ artist.name }}
+            </option>
+          {% endfor %}
+        </select>
+    </div>
+
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="{{ album.title }}" required autofocus>
+  </div>
+
+  <div>
+    <label for="year_published">Year Released:</label>
+    <input type="number" id="year_released" name="year_released" value="{{ album.year_released }}" required autofocus>
+  </div>
+  
+  <div>
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" value="{{ album.genre }}" required autofocus>
+  </div>
+
+  <div>
+    <label for="stock_qty">Stock qty:</label>
+    <input type="number" id="stock_qty" name="stock_qty" value="{{ album.stock_qty }}" required autofocus>
+  </div>
+
+  <div>
+    <label for="purchase_price">Cost to buy:</label>
+    <input type="number" id="purchase_price" name="purchase_price" value="{{ album.purchase_price }}" required autofocus>
+  </div>
+
+  <div>
+    <label for="sell_price">Sale price:</label>
+    <input type="number" id="sell_price" name="sell_price" value="{{ album.sell_price }}" required autofocus>
+  </div>
+
+  <button type="submit">Update Record</button>
+
+</form>
+
+{% endblock %}
