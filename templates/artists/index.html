@@ -1,1 +1,17 @@
-artist index
+{% extends "base.html" %}
+{% block content %}
+
+<hr>
+{% for artist in all_artists %}
+    <div>
+        <a href="/artists/{{ artist.id }}">{{ artist.name }}</a>
+        <div class="buttons">
+            <form class="delete-form" action="/artists/{{ artist.id }}/delete" method="POST">
+                <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+            </form>
+            <hr>           
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
