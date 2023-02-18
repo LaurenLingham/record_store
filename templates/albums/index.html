@@ -16,8 +16,8 @@
         </div>
         <p>No. in stock: {{ album.stock_qty }}</p>
         <p></p>
-        <p>Cost to buy: £{{ album.purchase_price }}</p>
-        <p>Sale price: £{{ album.sell_price }}</p>
+        <p>Cost to buy: {{ album.purchase_price_formatted() }}</p>
+        <p>Sale price: {{ album.sell_price_formatted() }}</p>
         <div class="buttons">
             <form class="delete-form" action="/albums/{{ album.id }}/delete" method="POST">
                 <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>

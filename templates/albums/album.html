@@ -10,8 +10,8 @@
     <p></p>
     <p>No. in stock: {{ album.stock_qty }}</p>
     <p></p>
-    <p>Cost to buy: £{{ album.purchase_price }}</p>
-    <p>Sale price: £{{ album.sell_price }}</p>
+    <p>Cost to buy: {{ album.purchase_price_formatted() }}</p>
+    <p>Sale price: {{ album.sell_price_formatted() }}</p>
     <p></p>
     <p><a href="/albums/{{ album.id }}/edit">Edit</a></p>
   </div>

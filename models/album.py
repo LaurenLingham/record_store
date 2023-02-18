@@ -9,3 +9,9 @@ class Album:
         self.purchase_price = purchase_price
         self.sell_price = sell_price
         self.id = id
+
+    def purchase_price_formatted(self):
+        return f"£{self.purchase_price:.2f}"
+    
+    def sell_price_formatted(self):
+        return f"£{self.sell_price:.2f}"

@@ -14,5 +14,14 @@
 
 
 <h3>Stock Alerts</h3>
+<div>
+    {% for album in albums %}
+        {% if album.stock_qty == 0 %}
+            <a href=albums/{{album.id}} class="homepage_attention_item"><p><b>{{ album.title }} by {{ album.artist.name }} is out of stock</b></p></a>
+        {% elif album.stock_qty <= 3 %}
+            <a href=albums/{{album.id}} class="homepage_attention_item"><p><i>{{ album.title }} by {{ album.artist.name }} has low stock</i></p></a>
+        {% endif %}
+    {% endfor %}
+</div>
 
 {% endblock %}
