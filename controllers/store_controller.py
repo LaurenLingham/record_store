@@ -12,7 +12,12 @@ def homepage():
     albums = album_repository.select_all()
     total_albums_in_stock = album_repository.total_albums_in_stock(albums)
     total_spend_on_stock = album_repository.total_spend_on_stock(albums)
-    return render_template("/index.html", albums = albums, total_albums_in_stock = total_albums_in_stock, total_spend_on_stock = total_spend_on_stock)
+    stock_alerts = False
+    for album in albums:
+        if album.stock_qty <= 3:
+            stock_alerts = True
+            break
+    return render_template("/index.html", albums = albums, total_albums_in_stock = total_albums_in_stock, total_spend_on_stock = total_spend_on_stock, stock_alerts = stock_alerts)
 
 @albums_blueprint.route("/albums")
 def albums():
