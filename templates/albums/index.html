@@ -2,7 +2,41 @@
 {% block content %}
 
 <hr>
-{% for album in all_albums %}
+<table>
+    <thead>
+      <tr>
+        <th>Item Number</th>
+        <th>Artist</th>
+        <th>Album Title</th>
+        <th>Genre</th>
+        <th>Stock Qty</th>
+        <th>Cost to Buy</th>
+        <th>Sale Price</th>
+        <th>Markup</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for album in all_albums %}
+        <tr>
+            <!-- <td>{{album.id}}</td>  -->
+            <td>{{book.author}}</td>
+            <td>{{book.genre}}</td>
+            <td>
+              <a href="{{ url_for('single_book', index=loop.index0) }}"
+                ><span class="material-symbols-outlined menu-icon">
+                  menu_book
+                </span></a
+              >
+            </td>
+            <td>
+              <a href="/book/checkout/{{loop.index0}}">
+                {% if book.checked_out %}
+                <span class="material-symbols-outlined"> close </span>
+                {% else %}<span class="material-symbols-outlined"> done </span> {%
+                endif %}
+              </a>
+            </td>
+          </tr>
     <div>
         <a href="/albums/{{ album.id }}">{{ album.title }}</a>
         <div>
