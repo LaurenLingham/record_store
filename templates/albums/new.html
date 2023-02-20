@@ -27,14 +27,13 @@
     </div>
     <div>
         <label for="purchase_price">Cost to buy: £</label>
-        <input type="number" id="purchase_price" name="purchase_price" required>
+        <input type="number" id="purchase_price" name="purchase_price" step="0.01" required>
     </div>
     <div>
         <label for="sell_price">Sale price: £</label>
-        <input type="number" id="sell_price" name="sell_price" required>
+        <input type="number" id="sell_price" name="sell_price" step="0.01" required>
     </div>
     <button type="submit">Add Record</button>  
 </form>
 
 {% endblock %}
-

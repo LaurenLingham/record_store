@@ -12,18 +12,19 @@
     </tr>
 </table>
 
+<hr>
 
 <h3>Stock Alerts</h3>
 <div>
     {% if stock_alerts %}
         {% for album in albums %}
             {% if album.stock_qty == 0 %}
-                <a id="out-of-stock" href=albums/{{album.id}} class="homepage_attention_item"><p><i>! {{ album.title }} by {{ album.artist.name }} is out of stock</i></p></a>
+                <a id="out_of_stock" href=albums/{{album.id}} class="homepage_attention_item"><p><i>! {{ album.title }} by {{ album.artist.name }} is out of stock</i></p></a>
             {% endif %}
         {% endfor %}
         {% for album in albums %}
             {% if album.stock_qty > 0 and album.stock_qty <= 3 %}
-                <a id="low-stock" href=albums/{{album.id}} class="homepage_attention_item"><p><i>! {{ album.title }} by {{ album.artist.name }} has low stock</i></p></a>
+                <a id="low_stock" href=albums/{{album.id}} class="homepage_attention_item"><p><i>! {{ album.title }} by {{ album.artist.name }} has low stock</i></p></a>
             {% endif %}
         {% endfor %} 
     {% else %}

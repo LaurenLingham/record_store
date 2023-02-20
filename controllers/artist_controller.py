@@ -35,7 +35,7 @@ def edit_artist(id):
 def update_artist(id):
     name = request.form["name"]
     artist = Artist(name)
-    artist_repository.updte(artist)
+    artist_repository.update(artist)
     return redirect("/artists")
 
 @artists_blueprint.route("/artists/<id>/delete", methods=["POST"])
