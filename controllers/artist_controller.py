@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.artist import Artist
 import repositories.artist_repository as artist_repository
+import repositories.album_repository as album_repository
 
 artists_blueprint = Blueprint("artists", __name__)
 
@@ -40,5 +41,10 @@ def update_artist(id):
 
 @artists_blueprint.route("/artists/<id>/delete", methods=["POST"])
 def delete_artist(id):
+    albums = album_repository.filter_by_artist(id)
+    
+    for album in albums:
+        album_repository.delete(album.id)
+
     artist_repository.delete(id)
     return redirect ("/artists")
