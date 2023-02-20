@@ -65,6 +65,13 @@ button {
     border-radius: 5px;
     padding: 7px;
     color: white;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #7b9d9d3d;
+    color: #7b9d9d;
 }
 
 .top_menu {
@@ -125,4 +132,8 @@ p {
 
 td {
     white-space: nowrap;
+}
+
+.input_field_padding {
+    margin: 10px 0 10px 0;
 }
