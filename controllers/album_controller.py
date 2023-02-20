@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.album import Album
-from models.artist import Artist
 import repositories.album_repository as album_repository
 import repositories.artist_repository as artist_repository
 
@@ -22,12 +21,12 @@ def homepage():
 @albums_blueprint.route("/albums")
 def albums():
     albums = album_repository.select_all()
-    return render_template("albums/index.html", all_albums = albums)
+    return render_template("albums/index.html", albums = albums)
 
 @albums_blueprint.route("/albums/new")
 def new_album():
     artists = artist_repository.select_all()
-    return render_template("/albums/new.html", all_artists = artists)
+    return render_template("/albums/new.html", artists = artists)
 
 @albums_blueprint.route("/albums", methods=["POST"])
 def create_album():
@@ -51,7 +50,7 @@ def show_album(id):
 def edit_album(id):
     album = album_repository.select(id)
     artists = artist_repository.select_all()
-    return render_template("albums/edit.html", album = album, all_artists = artists)
+    return render_template("albums/edit.html", album = album, artists = artists)
 
 @albums_blueprint.route("/albums/<id>", methods=["POST"])
 def update_album(id):
@@ -70,41 +69,3 @@ def update_album(id):
 def delete_album(id):
     album_repository.delete(id)
     return redirect ("/albums")
-
-@albums_blueprint.route("/artists")
-def artists():
-    artists = artist_repository.select_all()
-    return render_template("artists/index.html", all_artists = artists)
-
-@albums_blueprint.route("/artists/new")
-def new_artist():
-    return render_template("/artists/new.html")
-
-@albums_blueprint.route("/artists", methods=["POST"])
-def create_artist():
-    name = request.form["name"]
-    artist = Artist(name)
-    artist_repository.save(artist)
-    return redirect("/artists")
-
-@albums_blueprint.route("/artists/<id>")
-def show_artist(id):
-    artist = artist_repository.select(id)
-    return render_template("artists/artist.html", artist = artist)
-
-@albums_blueprint.route("/artists/<id>/edit")
-def edit_artist(id):
-    artist = artist_repository.select(id)
-    return render_template("artists/edit.html", artist = artist)
-
-@albums_blueprint.route("/artists/<id>", methods=["POST"])
-def update_artist(id):
-    name = request.form["name"]
-    artist = Artist(name)
-    artist_repository.updte(artist)
-    return redirect("/artists")
-
-@albums_blueprint.route("/artists/<id>/delete", methods=["POST"])
-def delete_artist(id):
-    artist_repository.delete(id)
-    return redirect ("/artists")

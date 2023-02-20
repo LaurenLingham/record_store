@@ -54,3 +54,11 @@ button {
 .top-menu {
     padding-left: 10px;
 }
+
+#out-of-stock {
+    color: red;
+}
+
+#low-stock {
+    color: orange;
+}

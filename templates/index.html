@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<hr>
+
 <table id="store_stock_table">
     <tr>
         <th>Total albums in stock</th>
@@ -18,9 +18,12 @@
     {% if stock_alerts %}
         {% for album in albums %}
             {% if album.stock_qty == 0 %}
-                <a href=albums/{{album.id}} class="homepage_attention_item"><p><b>{{ album.title }} by {{ album.artist.name }} is out of stock</b></p></a>
-            {% elif album.stock_qty <= 3 %}
-                <a href=albums/{{album.id}} class="homepage_attention_item"><p><i>{{ album.title }} by {{ album.artist.name }} has low stock</i></p></a>
+                <a id="out-of-stock" href=albums/{{album.id}} class="homepage_attention_item"><p><i>! {{ album.title }} by {{ album.artist.name }} is out of stock</i></p></a>
+            {% endif %}
+        {% endfor %}
+        {% for album in albums %}
+            {% if album.stock_qty > 0 and album.stock_qty <= 3 %}
+                <a id="low-stock" href=albums/{{album.id}} class="homepage_attention_item"><p><i>! {{ album.title }} by {{ album.artist.name }} has low stock</i></p></a>
             {% endif %}
         {% endfor %} 
     {% else %}
