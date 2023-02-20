@@ -62,11 +62,6 @@ def filter_by_artist(id):
         albums.append(album)
     return albums
 
-def markup(purchase_price, sell_price):
-    diff = abs(purchase_price - sell_price)
-    avg = (purchase_price + sell_price) / 2
-    return round((diff / avg) * 100)
-
 def total_albums_in_stock(albums):
     total_albums = 0
     for album in albums:
