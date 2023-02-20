@@ -14,9 +14,15 @@ class Album:
     def purchase_price_formatted(self):
         return f"£{self.purchase_price:.2f}"
     
+    def purchase_price_two_decimal_places(self):
+        return f"{self.purchase_price:.2f}"
+    
     def sell_price_formatted(self):
         return f"£{self.sell_price:.2f}"
-
+    
+    def sell_price_two_decimal_places(self):
+        return f"{self.sell_price:.2f}"
+    
     def markup(self, purchase_price, sell_price):
         markup_percent = (sell_price / purchase_price) - 1
         markup_percent_rounded = round(markup_percent * 100)

@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1>Update Record Details</h1>
 <form action="/albums/{{ album.id }}" method="post">
     <div>
         <label for="artist">Artist:</label>
         <select id="artist" name="artist.id">
-          {% for artist in all_artists %}
+          {% for artist in artists %}
             <option value="{{ artist.id }}"
-              {% if album.artist.id== artist.id %} selected="selected"{% endif %}>
+              {% if album.artist.id == artist.id %} selected="selected"{% endif %}>
               {{ artist.name }}
             </option>
           {% endfor %}
@@ -35,16 +36,16 @@
   </div>
 
   <div>
-    <label for="purchase_price">Cost to buy:</label>
-    <input type="number" id="purchase_price" name="purchase_price" value="{{ album.purchase_price }}" required autofocus>
+    <label for="purchase_price">Cost to buy: £</label>
+    <input type="number" id="purchase_price" name="purchase_price" value="{{ album.purchase_price_two_decimal_places() }}" step="0.01" required autofocus>
   </div>
 
   <div>
-    <label for="sell_price">Sale price:</label>
-    <input type="number" id="sell_price" name="sell_price" value="{{ album.sell_price }}" required autofocus>
+    <label for="sell_price">Sale price: £</label>
+    <input type="number" id="sell_price" name="sell_price" value="{{ album.sell_price_two_decimal_places() }}" required autofocus>
   </div>
 
-  <button type="submit">Update Record</button>
+  <button type="submit">Update</button>
 
 </form>
 

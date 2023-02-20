@@ -54,15 +54,15 @@ def edit_album(id):
 
 @albums_blueprint.route("/albums/<id>", methods=["POST"])
 def update_album(id):
-    artist = artist_repository.select(request.form["artist"])
+    artist = artist_repository.select(request.form["artist.id"])
     title = request.form["title"]
     year_released = request.form["year_released"]
     genre = request.form["genre"]
-    stock_qty = request.form["stock_qty"]
-    purchase_price = request.form["purchase_price"]
-    sell_price = request.form["sell_price"]
-    album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price)
-    album_repository.updte(album)
+    stock_qty = int(request.form["stock_qty"])
+    purchase_price = float(request.form["purchase_price"])
+    sell_price = float(request.form["sell_price"])
+    album = Album(artist, title, year_released, genre, stock_qty, purchase_price, sell_price, id)
+    album_repository.update(album)
     return redirect("/albums")
 
 @albums_blueprint.route("/albums/<id>/delete", methods=["POST"])
