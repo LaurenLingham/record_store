@@ -13,7 +13,11 @@
     <p>Sale price: {{ album.sell_price_formatted() }}</p>
     <p></p>
     <p><a href="/albums/{{ album.id }}/edit">Edit</a></p>
-    <p><a href="/albums/{{ album.id }}"></a></p>
+    <div class="buttons">
+      <form class="delete_form" action="/albums/{{ album.id }}/delete" method="POST">
+          <button class="trash_button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+      </form>     
+    </div>
   </div>
 
 {% endblock %}}

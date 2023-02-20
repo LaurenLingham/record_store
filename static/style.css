@@ -34,7 +34,15 @@ a:visited {
     transform: rotate(270deg);
 }
 
+.logo_name {
+    height: 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .logo_bar {
+    display: flex;
     width: 100%;
     height: 100px;
     background-color: #7b9d9d;
@@ -65,10 +73,14 @@ button {
 
 #out_of_stock {
     color: red;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #low_stock {
     color: orange;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #store_stock_table > table, th, td {
@@ -80,14 +92,18 @@ button {
 table {
     border-collapse: collapse;
     width: 100%;
+    overflow: auto;
 }
 
 th {
-    height: 70px;
     background-color: #7b9d9d;
 }
 
-td {
+.stock_table_head {
+    height: 70px;
+}
+
+.stock_table_data {
     height: 50px;
 }
 
@@ -97,4 +113,16 @@ tr:nth-child(even) {
 
 nav > ul {
     padding-inline-start: 10px;
+}
+
+#trash_button {
+    background-color: white;
+}
+
+p {
+    margin: 5px;
+}
+
+td {
+    white-space: nowrap;
 }
