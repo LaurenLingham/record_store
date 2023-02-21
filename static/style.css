@@ -34,14 +34,14 @@ a:visited {
     transform: rotate(270deg);
 }
 
-.logo_name {
+.logo-name {
     height: 20px;
     display: block;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.logo_bar {
+.logo-bar {
     display: flex;
     width: 100%;
     height: 100px;
@@ -74,23 +74,23 @@ button:hover {
     color: #7b9d9d;
 }
 
-.top_menu {
+.top-menu {
     padding-left: 10px;
 }
 
-#out_of_stock {
+#out-of-stock {
     color: red;
     font-size: 1.5em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#low_stock {
+#low-stock {
     color: orange;
     font-size: 1.5em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#store_stock_table > table, th, td {
+#stock-table > table, th, td {
     border: 2px solid;
     text-align: center;
     vertical-align: center;
@@ -106,11 +106,11 @@ th {
     background-color: #7b9d9d;
 }
 
-.stock_table_head {
+.stock-table-head {
     height: 70px;
 }
 
-.stock_table_data {
+.stock-table-data {
     height: 50px;
 }
 
@@ -122,7 +122,7 @@ nav > ul {
     padding-inline-start: 10px;
 }
 
-#trash_button {
+#delete-button {
     background-color: white;
 }
 
@@ -134,10 +134,10 @@ td {
     white-space: nowrap;
 }
 
-.input_field_padding {
+.input-field-padding {
     margin: 10px 0 10px 0;
 }
 
-.edit_delete {
+.edit-delete {
     display: inline-block;
 }

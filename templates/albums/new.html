@@ -8,37 +8,37 @@
         <br>
         <select id="artist" name="artist.id">
             <option value="" disabled selected>Select Artist</option>
-          {% for artist in artists %}
-            <option value="{{ artist.id }}">{{ artist.name }}</option>
-          {% endfor %}
+            {% for artist in artists %}
+                <option value="{{ artist.id }}">{{ artist.name }}</option>
+            {% endfor %}
         </select>
     </div>
-    <div class="input_field_padding">
+    <div class="input-field-padding">
       <label for="title">Title</label>
       <br>
       <input type="text" id="title" name="title" required autofocus>
     </div>
-    <div class="input_field_padding">
+    <div class="input-field-padding">
         <label for="year_published">Year Released</label>
         <br>
         <input type="number" id="year_released" name="year_released" required>
     </div>
-    <div class="input_field_padding">
+    <div class="input-field-padding">
         <label for="genre">Genre</label>
         <br>
         <input type="text" id="genre" name="genre" required>
     </div>    
-    <div class="input_field_padding">
+    <div class="input-field-padding">
         <label for="stock_qty">Stock qty</label>
         <br>
         <input type="number" id="stock_qty" name="stock_qty" required>
     </div>
-    <div class="input_field_padding">
+    <div class="input-field-padding">
         <label for="purchase_price">Cost to buy</label>
         <br>
         <input type="number" id="purchase_price" name="purchase_price" step="0.01" placeholder="£" required>
     </div>
-    <div class="input_field_padding">
+    <div class="input-field-padding">
         <label for="sell_price">Sale price</label>
         <br>
         <input type="number" id="sell_price" name="sell_price" step="0.01" placeholder="£" required>

@@ -9,12 +9,12 @@
 <h6>Cost to buy: {{ album.purchase_price_formatted() }}</h6>
 <h6>Sale price: {{ album.sell_price_formatted() }}</h6>
 <br>
-<div class="edit_delete">
+<div class="edit-delete">
   <form action="/albums/{{ album.id }}/edit" method="GET">
     <button class="buttons"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
   </form>
   <form action="/albums/{{ album.id }}/delete" method="POST">
-    <button class="buttons" class="trash_button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+    <button class="buttons" class="delete-button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
   </form>
 </div>
 

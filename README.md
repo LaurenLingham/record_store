@@ -37,10 +37,6 @@ My app is for a record store which tracks which albums they have in stock.  The 
 
 ## Setup Instructions
 
-### PostGreSQL database
-
-Change directory into `project` and run the following commands:
-
 ```bash
 # terminal
 createdb shop_manager
@@ -54,7 +50,6 @@ python3 seeds.py
 
 ```bash
 # terminal
-
 pip3 install Flask
 ```
 
@@ -65,12 +60,10 @@ flask run
 You should see the following:
 
 ```bash
-* Serving Flask app "app.py"
-* Environment: production
-  WARNING: This is a development server. Do not use it in a production deployment.
-  Use a production WSGI server instead.
-* Debug mode: off
-* Running on http://localhost:4999/ (Press CTRL+C to quit)
+ * Serving Flask app 'app.py'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://localhost:4999/
 ```
 
-Click on the link to open the app in your browser.
+Click on the link to open the app in your browser

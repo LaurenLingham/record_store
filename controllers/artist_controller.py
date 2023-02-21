@@ -42,9 +42,7 @@ def update_artist(id):
 @artists_blueprint.route("/artists/<id>/delete", methods=["POST"])
 def delete_artist(id):
     albums = album_repository.filter_by_artist(id)
-
     for album in albums:
         album_repository.delete(album.id)
-
     artist_repository.delete(id)
     return redirect ("/artists")
