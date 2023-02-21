@@ -4,20 +4,20 @@
 <h1>{{ album.title }}</h1>
 <h2>by {{ album.artist.name }}<h2>
 <h3>Released in {{ album.year_released }}</h3>
-<h4>Genre: {{ album.genre }}</h4>
-<h5>No. in stock: {{ album.stock_qty }}</h5>
-<h6>Cost to buy: {{ album.purchase_price_formatted() }}</h6>
-<h6>Sale price: {{ album.sell_price_formatted() }}</h6>
+<h3>Genre: {{ album.genre }}</h3>
+<h4>No. in stock: {{ album.stock_qty }}</h4>
+<h4>Cost to buy: {{ album.purchase_price_formatted() }}</h4>
+<h4>Sale price: {{ album.sell_price_formatted() }}</h4>
 <br>
 <div class="edit-delete">
   <form action="/albums/{{ album.id }}/edit" method="GET">
     <div>
-      <button class="buttons"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
+      <button class="buttons"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
     </div>
   </form>
   <form action="/albums/{{ album.id }}/delete" method="POST">
     <div>
-      <button class="buttons" class="delete-button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+      <button class="buttons"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
     </div>
   </form>
 </div>

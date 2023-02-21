@@ -3,16 +3,21 @@
 
 <h1>{{ artist.name }}</h1>
 
-<div class="buttons" class="edit-delete">
+<div class="edit-delete">
     <form action="/artists/{{ artist.id }}/edit" method="GET">
-        <button><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
+        <button class="buttons"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
     </form>
     <form action="/artists/{{ artist.id }}/delete" method="POST">
-        <button class="delete-button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+        <button class="buttons"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
     </form>     
 </div>
 
 <h2>Records</h2>
 
+{% for album in albums %}
+
+<p>{{ album.title }}</p>
+
+{% endfor %}
 
 {% endblock %}}

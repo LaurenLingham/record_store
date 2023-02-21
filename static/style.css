@@ -151,14 +151,15 @@ td {
     color: #7b9d9d;
 }
 
-.edit-delete form,
-.edit-delete form div {
-    display: inline;
+.edit-delete {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
 }
 
 .edit-delete button {
-    display: inline;
-    vertical-align: middle;
+    width: 50px;
+    height: 50px;
 }
 
 .record-list-symbol {

@@ -25,7 +25,8 @@ def create_artist():
 @artists_blueprint.route("/artists/<id>")
 def show_artist(id):
     artist = artist_repository.select(id)
-    return render_template("artists/artist.html", artist = artist)
+    albums = album_repository.filter_by_artist(artist.id)
+    return render_template("artists/artist.html", artist = artist, albums = albums)
 
 @artists_blueprint.route("/artists/<id>/edit")
 def edit_artist(id):
@@ -35,7 +36,7 @@ def edit_artist(id):
 @artists_blueprint.route("/artists/<id>", methods=["PUT"])
 def update_artist(id):
     name = request.form["name"]
-    artist = Artist(name)
+    artist = Artist(name, id)
     artist_repository.update(artist)
     return redirect("/artists")
 
