@@ -12,6 +12,7 @@ a:visited {
     text-decoration: None;
     display: flex;
     align-items: center;
+    color: black
 }
 
 #sidebar a:focus,
@@ -137,6 +138,13 @@ td {
 
 .input-field-padding {
     margin: 10px 0 10px 0;
+}
+
+.name-link,
+.name-link:focus,
+.name-link:visited {
+    text-decoration: None;
+    color: black;
 }
 
 .name-link:hover {
