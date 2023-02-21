@@ -30,7 +30,7 @@ artist_repository.save(artist_10)
 
 album_1 = Album(artist_1, "Opposites", 2018, "Rock", 10, 6.50, 11.99)
 album_2 = Album(artist_2, "The Devil and God Are Raging Inside Me", 2006, "Alt rock", 5, 6.00, 9.99)
-album_3 = Album(artist_3, "The Sufferer & the Witness", 2006, "Punk rock", 2, 5.00, 9.99)
+album_3 = Album(artist_3, "The Sufferer & the Witness", 2006, "Punk rock", 4, 5.00, 9.99)
 album_4 = Album(artist_4, "The Earth Is Not a Cold Dead Place", 2003, "Post rock", 6, 6.00, 11.99)
 album_5 = Album(artist_5, "Too Low for Zero", 1983, "Pop", 0, 8.00, 12.99)
 album_6 = Album(artist_6, "Bring Me Your Love", 2008, "Alt rock", 7, 5.00, 9.99)
