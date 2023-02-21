@@ -20,7 +20,7 @@
     {% for album in albums %}
       <tr>
         <td>{{ album.id }}</td>
-        <td><a href="/albums/{{ album.id }}">{{ album.title }}</a></td>
+        <td><a class="name-link" href="/albums/{{ album.id }}">{{ album.title }}</a></td>
         <td>{{ album.artist.name }}</td>
         <td>{{ album.genre }}</td>
         <td>{{ album.year_released }}</td>

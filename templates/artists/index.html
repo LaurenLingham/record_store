@@ -4,7 +4,7 @@
 <header><h1>All Artists</h1></header>
 <hr>
 {% for artist in artists %}
-    <a href="/artists/{{ artist.id }}">{{ artist.name }}</a>
+    <a class="name-link" href="/artists/{{ artist.id }}">{{ artist.name }}</a>
     <hr>
 {% endfor %}
 

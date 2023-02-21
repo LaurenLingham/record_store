@@ -11,10 +11,14 @@
 <br>
 <div class="edit-delete">
   <form action="/albums/{{ album.id }}/edit" method="GET">
-    <button class="buttons"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
+    <div>
+      <button class="buttons"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
+    </div>
   </form>
   <form action="/albums/{{ album.id }}/delete" method="POST">
-    <button class="buttons" class="delete-button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+    <div>
+      <button class="buttons" class="delete-button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+    </div>
   </form>
 </div>
 

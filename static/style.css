@@ -138,6 +138,16 @@ td {
     margin: 10px 0 10px 0;
 }
 
-.edit-delete {
-    display: inline-block;
+.name-link:hover {
+    color: #7b9d9d;
+}
+
+.edit-delete form,
+.edit-delete form div {
+    display: inline;
+}
+
+.edit-delete button {
+    display: inline;
+    vertical-align: middle;
 }
