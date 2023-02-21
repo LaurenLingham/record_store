@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1>Stock List</h1>
 <table>
   <thead>
     <tr>
@@ -17,17 +18,17 @@
   </thead>
   <tbody>
     {% for album in albums %}
-    <tr>
-      <td>{{ album.id }}</td>
-      <td><a href="/albums/{{ album.id }}">{{ album.title }}</a></td>
-      <td>{{ album.artist.name }}</td>
-      <td>{{ album.genre }}</td>
-      <td>{{ album.year_released }}</td>
-      <td>{{ album.stock_qty }}</td>
-      <td>{{ album.purchase_price_formatted() }}</td>
-      <td>{{ album.sell_price_formatted() }}</td>
-      <td>{{ album.markup_value }}</td>
-    </tr>
+      <tr>
+        <td>{{ album.id }}</td>
+        <td><a href="/albums/{{ album.id }}">{{ album.title }}</a></td>
+        <td>{{ album.artist.name }}</td>
+        <td>{{ album.genre }}</td>
+        <td>{{ album.year_released }}</td>
+        <td>{{ album.stock_qty }}</td>
+        <td>{{ album.purchase_price_formatted() }}</td>
+        <td>{{ album.sell_price_formatted() }}</td>
+        <td>{{ album.markup_value }}</td>
+      </tr>
     {% endfor %} 
   </tbody>
 </table>

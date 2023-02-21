@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Update Artist</h1>
+<h1>Amend Artist</h1>
 <form action="/artists/{{ artist.id }}" method="post">
   <div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="{{ artist.name }}" required autofocus>
   </div>
+  <br>
   <button type="submit">Update</button>
 </form>
 

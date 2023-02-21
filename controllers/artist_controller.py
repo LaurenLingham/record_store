@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import render_template, request, redirect
 from flask import Blueprint
 from models.artist import Artist
 import repositories.artist_repository as artist_repository
@@ -32,7 +32,7 @@ def edit_artist(id):
     artist = artist_repository.select(id)
     return render_template("artists/edit.html", artist = artist)
 
-@artists_blueprint.route("/artists/<id>", methods=["POST"])
+@artists_blueprint.route("/artists/<id>", methods=["PUT"])
 def update_artist(id):
     name = request.form["name"]
     artist = Artist(name)

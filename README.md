@@ -1,4 +1,9 @@
-# Record Store Inventory
+# Table of Contents
+1. [Brief](#brief)
+2. [My App](#my_app)
+3. [Technologies Used](#technologies-used)
+4. [Setup Instructions](#setup-instructions)
+<br>
 
 ## Brief
 
@@ -15,29 +20,57 @@ Build an app which allows a shopkeeper to track their shop's inventory. This is 
 * Show an inventory page, listing all the details for all the products in stock in a single view.
 * As well as showing stock quantity as a number, the app should visually highlight "low stock" and "out of stock" items to the user.
 
-#### Inspired by
 
-eBay, Amazon (back end only), Magento
+## My App
 
-#### Possible Extensions
+My app is for a record store which tracks which albums they have in stock.  The user has the ability to view, create, edit and delete Artists and Albums.
 
-* Calculate the markup on items in the store, and display it in the inventory
-* Filter the inventory list by manufacturer. For example, provide an option to view all books in stock by a certain author.
-* Categorise your items. Books might be categorised by genre (crime, horror, romance...) and cars might be categorised by type (SUV, coupé, hatchback...). Provide an option to filter the inventory list by these categories.
-* Mark manufacturers as active/deactivated. Deactivated manufacturers will not appear when creating new products.
 
-## Rules
+## Technologies Used
 
-The project must be built using only:
-
-* HTML / CSS
 * Python
+* HTML
+* CSS
 * Flask
 * PostgreSQL and the psycopg
 
-It must **NOT** use:
 
-* Any Object Relational Mapper (e.g. ActiveRecord)
-* JavaScript. At all. Don't even think about it.
-* Any pre-built CSS libraries, such as Bootstrap.
-* Authentication. Assume that the user already has secure access to the app.
+## Setup Instructions
+
+### PostGreSQL database
+
+Change directory into `project` and run the following commands:
+
+```bash
+# terminal
+createdb shop_manager
+psql -d record_store -f db/record_store.sql 
+```
+
+```bash
+# terminal
+python3 seeds.py
+```
+
+```bash
+# terminal
+
+pip3 install Flask
+```
+
+```bash
+# terminal
+flask run
+```
+You should see the following:
+
+```bash
+* Serving Flask app "app.py"
+* Environment: production
+  WARNING: This is a development server. Do not use it in a production deployment.
+  Use a production WSGI server instead.
+* Debug mode: off
+* Running on http://localhost:4999/ (Press CTRL+C to quit)
+```
+
+Click on the link to open the app in your browser.

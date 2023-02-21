@@ -1,23 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <div>
-    <p>{{ album.title }}</p>
-    <p>by {{ album.artist.name }}</p>
-    <p>Released in {{ album.year_released }}</p>
-    <p><i>{{ album.genre }}</i></p>
-    <p></p>
-    <p>No. in stock: {{ album.stock_qty }}</p>
-    <p></p>
-    <p>Cost to buy: {{ album.purchase_price_formatted() }}</p>
-    <p>Sale price: {{ album.sell_price_formatted() }}</p>
-    <p></p>
-    <p><a href="/albums/{{ album.id }}/edit">Edit</a></p>
-    <div class="buttons">
-      <form class="delete_form" action="/albums/{{ album.id }}/delete" method="POST">
-          <button class="trash_button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
-      </form>     
-    </div>
-  </div>
+<h1>{{ album.title }}</h1>
+<h2>by {{ album.artist.name }}<h2>
+<h3>Released in {{ album.year_released }}</h3>
+<h4>Genre: {{ album.genre }}</h4>
+<h5>No. in stock: {{ album.stock_qty }}</h5>
+<h6>Cost to buy: {{ album.purchase_price_formatted() }}</h6>
+<h6>Sale price: {{ album.sell_price_formatted() }}</h6>
+<br>
+<div class="edit_delete">
+  <form action="/albums/{{ album.id }}/edit" method="GET">
+    <button class="buttons"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
+  </form>
+  <form action="/albums/{{ album.id }}/delete" method="POST">
+    <button class="buttons" class="trash_button"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></button>
+  </form>
+</div>
 
 {% endblock %}}
