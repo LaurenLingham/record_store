@@ -4,7 +4,7 @@ from models.album import Album
 class TestAlbum(unittest.TestCase):
     def setUp(self):
         self.album = Album("Bruce Springsteen", "Born in the U.S.A.", 1984, "Rock",
-                           10, 5.00, 10.00)
+                           10, 5.00, 10.00, 1)
 
     def test_album_has_artist(self):
         expected = "Bruce Springsteen"
@@ -31,13 +31,18 @@ class TestAlbum(unittest.TestCase):
         actual = self.album.stock_qty
         self.assertEqual(expected, actual)
 
-    def test_album_has_stock(self):
+    def test_album_has_purchase_price(self):
         expected = 5.00
         actual = self.album.purchase_price
         self.assertEqual(expected, actual)
 
-    def test_album_has_name(self):
+    def test_album_has_sell_price(self):
         expected = 10.00
         actual = self.album.sell_price
+        self.assertEqual(expected, actual)
+
+    def test_album_has_id(self):
+        expected = 1
+        actual = self.album.id
         self.assertEqual(expected, actual)
     

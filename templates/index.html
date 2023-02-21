@@ -18,14 +18,14 @@
     {% if stock_alerts %}
         {% for album in albums %}
             {% if album.stock_qty == 0 %}
-                <a href=albums/{{album.id}} class="homepage-attention-item">
+                <a class="name-link" href=albums/{{album.id}} class="homepage-attention-item">
                     <p><span id="out-of-stock">!</span><i> {{ album.title }} by {{ album.artist.name }} is out of stock</i></p>
                 </a>
             {% endif %}
         {% endfor %}
         {% for album in albums %}
             {% if album.stock_qty > 0 and album.stock_qty <= 3 %}
-                <a href=albums/{{album.id}} class="homepage-attention-item">
+                <a class="name-link" href=albums/{{album.id}} class="homepage-attention-item">
                     <p><span id="low-stock">!</span><i> {{ album.title }} by {{ album.artist.name }} has low stock</i></p>
                 </a>
             {% endif %}
