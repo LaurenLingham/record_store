@@ -1,9 +1,7 @@
 # Table of Contents
 1. [Brief](#brief)
 2. [My App](#my_app)
-3. [Technologies Used](#technologies-used)
-4. [Setup Instructions](#setup-instructions)
-<br>
+3. [Setup Instructions](#setup-instructions)
 
 ## Brief
 
@@ -23,10 +21,9 @@ Build an app which allows a shopkeeper to track their shop's inventory. This is 
 
 ## My App
 
-My app is for a record store which tracks which albums they have in stock.  The user has the ability to view, create, edit and delete Artists and Albums.
+My app is designed for a record store which stores albums held in stock.  The user has the ability to view, create, edit and delete albums as well as artists.
 
-
-## Technologies Used
+#### Technologies Used
 
 * Python
 * HTML
