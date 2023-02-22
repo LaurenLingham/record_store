@@ -16,7 +16,8 @@
 <hr>
 <h2>Albums</h2>
 {% for album in albums %}
-    <a class="name-link" href="/albums/{{ album.id }}">{{ album.title }}</a>
+    <a class="name-link" href="/albums/{{ album.id }}">{{ album.title }} ({{ album.year_released }})</a>
+    <br>
 {% endfor %}
 
 {% endblock %}}

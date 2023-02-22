@@ -5,9 +5,9 @@
 <h2>by {{ album.artist.name }}<h2>
 <h3>Released in {{ album.year_released }}</h3>
 <h3>Genre: {{ album.genre }}</h3>
-<h4>No. in stock: {{ album.stock_qty }}</h4>
-<h4>Cost to buy: {{ album.purchase_price_formatted() }}</h4>
-<h4>Sale price: {{ album.sell_price_formatted() }}</h4>
+<h4>Stock Qty: {{ album.stock_qty }}</h4>
+<h4>Cost Price: {{ album.purchase_price_formatted() }}</h4>
+<h4>Retail Price: {{ album.sell_price_formatted() }}</h4>
 <br>
 <div class="edit-delete">
   <form action="/albums/{{ album.id }}/edit" method="GET">

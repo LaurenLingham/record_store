@@ -29,15 +29,15 @@
     <input type="text" id="genre" name="genre" value="{{ album.genre }}" required autofocus>
   </div>
   <div>
-    <label for="stock_qty">Stock qty:</label>
+    <label for="stock_qty">Stock Qty:</label>
     <input type="number" id="stock_qty" name="stock_qty" value="{{ album.stock_qty }}" required autofocus>
   </div>
   <div>
-    <label for="purchase_price">Cost to buy: £</label>
+    <label for="purchase_price">Cost Price: £</label>
     <input type="number" id="purchase_price" name="purchase_price" value="{{ album.purchase_price_two_decimal_places() }}" step="0.01" required autofocus>
   </div>
   <div>
-    <label for="sell_price">Sale price: £</label>
+    <label for="sell_price">Retail Price: £</label>
     <input type="number" id="sell_price" name="sell_price" value="{{ album.sell_price_two_decimal_places() }}" step="0.01" required autofocus>
   </div>
   <button type="submit">Update</button>
