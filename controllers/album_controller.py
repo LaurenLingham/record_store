@@ -41,7 +41,7 @@ def create_album():
     album_repository.save(album)
     return redirect("/albums")
 
-@albums_blueprint.route("/albums/<id>")
+@albums_blueprint.route("/albums/<id>", methods = ["GET"])
 def show_album(id):
     album = album_repository.select(id)
     return render_template("albums/album.html", album = album)
