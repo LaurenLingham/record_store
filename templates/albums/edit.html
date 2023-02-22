@@ -38,7 +38,7 @@
   </div>
   <div>
     <label for="sell_price">Sale price: £</label>
-    <input type="number" id="sell_price" name="sell_price" value="{{ album.sell_price_two_decimal_places() }}" required autofocus>
+    <input type="number" id="sell_price" name="sell_price" value="{{ album.sell_price_two_decimal_places() }}" step="0.01" required autofocus>
   </div>
   <button type="submit">Update</button>
 </form>
