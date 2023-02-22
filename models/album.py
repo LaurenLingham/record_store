@@ -29,5 +29,5 @@ class Album:
         return f"{markup_percent_rounded}%"
     
     def stock_number(self):
-        return ("{:05d}".format(self.id))
+        return ("{:06d}".format(self.id))
     

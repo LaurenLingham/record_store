@@ -180,3 +180,11 @@ td {
     padding-right: 10px;
     padding-left: 10px;
 }
+
+.out-of-stock-table {
+    color: red;
+}
+
+.low-stock-table {
+    color: orange;
+}

@@ -24,7 +24,17 @@
         <td class="align-left">{{ album.artist.name }}</td>
         <td class="align-left">{{ album.genre }}</td>
         <td>{{ album.year_released }}</td>
-        <td class="align-right">{{ album.stock_qty }}</td>
+        <td class="align-right">
+          {% if album.stock_qty == 0 %}
+            <div class="out-of-stock-table">{{ album.stock_qty }}</div>
+          {% endif %}
+          {% if album.stock_qty > 0 and album.stock_qty <= 3 %}
+            <div class="low-stock-table">{{ album.stock_qty }}</div>
+          {% endif %}
+          {% if album.stock_qty > 3 %}
+            <div>{{ album.stock_qty }}</div>
+          {% endif %}
+        </td>
         <td class="align-right">{{ album.purchase_price_formatted() }}</td>
         <td class="align-right">{{ album.sell_price_formatted() }}</td>
         <td class="align-right">{{ album.markup_value }}</td>
