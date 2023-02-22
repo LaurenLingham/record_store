@@ -52,7 +52,7 @@ def edit_album(id):
     artists = artist_repository.select_all()
     return render_template("albums/edit.html", album = album, artists = artists)
 
-@albums_blueprint.route("/albums/<id>", methods=["PUT"])
+@albums_blueprint.route("/albums/<id>", methods=["POST"])
 def update_album(id):
     artist = artist_repository.select(request.form["artist.id"])
     title = request.form["title"]

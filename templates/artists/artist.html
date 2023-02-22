@@ -11,13 +11,12 @@
         <button class="buttons"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
     </form>     
 </div>
-
-<h2>Records</h2>
-
+<br>
+<br>
+<hr>
+<h2>Albums</h2>
 {% for album in albums %}
-
-<p>{{ album.title }}</p>
-
+    <a class="name-link" href="/albums/{{ album.id }}">{{ album.title }}</a>
 {% endfor %}
 
 {% endblock %}}

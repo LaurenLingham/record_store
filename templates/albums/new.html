@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Create New Stock Item</h1>
+<h1>Create New Album</h1>
 <form action="/albums" method="post">
     <div>
         <label for="artist">Artist</label>
@@ -43,7 +43,7 @@
         <br>
         <input type="number" id="sell_price" name="sell_price" step="0.01" placeholder="£" required>
     </div>
-    <button type="submit">Add Record</button>  
+    <button type="submit">Add Album</button>  
 </form>
 
 {% endblock %}

@@ -33,7 +33,7 @@ def edit_artist(id):
     artist = artist_repository.select(id)
     return render_template("artists/edit.html", artist = artist)
 
-@artists_blueprint.route("/artists/<id>", methods=["PUT"])
+@artists_blueprint.route("/artists/<id>", methods=["POST"])
 def update_artist(id):
     name = request.form["name"]
     artist = Artist(name, id)

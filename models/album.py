@@ -28,3 +28,6 @@ class Album:
         markup_percent_rounded = round(markup_percent * 100)
         return f"{markup_percent_rounded}%"
     
+    def stock_number(self):
+        return ("{:05d}".format(self.id))
+    
