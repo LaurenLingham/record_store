@@ -36,23 +36,25 @@ My app is designed for a record store which stores albums held in stock.  The us
 
 ```bash
 # terminal
-createdb shop_manager
+pip install flask
+pip install psycopg2
+pip install python-dotenv
+```
+
+```bash
+# terminal
+createdb record_store
 psql -d record_store -f db/record_store.sql 
 ```
 
 ```bash
 # terminal
-python3 seeds.py
+python seeds.py
 ```
 
 ```bash
 # terminal
-pip3 install Flask
-```
-
-```bash
-# terminal
-flask run
+python -m flask run
 ```
 You should see the following:
 
