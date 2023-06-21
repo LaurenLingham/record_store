@@ -29,31 +29,37 @@ My app is designed for a record store which stores albums held in stock.  The us
 * HTML
 * CSS
 * Flask
-* PostgreSQL and the psycopg
+* PostgreSQL and the psycopg driver
 
 
 ## Setup Instructions
 
+Install pip dependencies
 ```bash
-# terminal
 pip install flask
 pip install psycopg2
 pip install python-dotenv
 ```
 
+Add the Postgres credentials as environment variables to allow the psql commands to be executed
 ```bash
-# terminal
+$env:PGUSER='<enter-your-postgres-username>'
+$env:PGPASSWORD='<enter-your-postgres-password>'
+```
+
+Create the database
+```bash
 createdb record_store
 psql -d record_store -f db/record_store.sql 
 ```
 
+Populate the data
 ```bash
-# terminal
 python seeds.py
 ```
 
+Run the app
 ```bash
-# terminal
 python -m flask run
 ```
 You should see the following:
